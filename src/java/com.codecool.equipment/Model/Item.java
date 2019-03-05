@@ -7,8 +7,17 @@ public class Item {
     private static int itemCounter = 0;
 
 
+    public int getWeight() {
+        return weight;
+    }
 
+    public String getName() {
+        return name;
+    }
 
+    public int getId() {
+        return id;
+    }
 
     public Item(int weight, String name, int id) {
         this.weight = weight;
