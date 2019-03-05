@@ -19,7 +19,7 @@ public class ItemListView extends VBox {
 
     public void updateView(List<Item> items) {
         for (Item item : items) {
-            getChildren().add(new ItemView(item));
+            getChildren().add(new EquippedItemView(item));
         }
     }
 
