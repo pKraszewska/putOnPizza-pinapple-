@@ -1,4 +1,5 @@
 package com.codecool.equipment;
+import com.codecool.equipment.View.EquipmentView;
 import com.codecool.equipment.View.HeroView;
 import com.codecool.equipment.View.MainView;
 import javafx.application.Application;
@@ -11,7 +12,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        MainView mainView = new MainView(new HeroView());
+        MainView mainView = new MainView(new HeroView(), new EquipmentView());
         Scene mainScene = new Scene(mainView, Config.WINDOW_WIDTH, Config.WINDOW_HEIGHT, new Color(0.48,0.60,0.65,1));
         primaryStage.setScene(mainScene);
         primaryStage.show();
