@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hero {
-    private final static int CAPACITY = 200;
+    private final static int CAPACITY = Config.MAX_CAPACITY;
     private List<Item> itemList = new ArrayList<>();
 
     public int getCAPACITY() {

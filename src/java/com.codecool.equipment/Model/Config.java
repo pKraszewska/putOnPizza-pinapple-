@@ -1,4 +1,7 @@
-package com.codecool.equipment.View;
+package com.codecool.equipment.Model;
 
-public class DisplayConfig {
+public class Config {
+
+    public static final int MAX_CAPACITY = 200;
+
 }
