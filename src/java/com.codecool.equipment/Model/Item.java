@@ -1,13 +1,13 @@
 package com.codecool.equipment.Model;
 
 public class Item {
-    private int weight;
+    private double weight;
     private String name;
     private int id;
     private static int itemCounter = 0;
 
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 

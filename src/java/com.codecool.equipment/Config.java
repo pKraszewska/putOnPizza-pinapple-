@@ -14,6 +14,8 @@ public class Config {
     public static final double HERO_IMAGE_WIDTH = WINDOW_WIDTH - (2 * SIDE_PANE_SIZE_WIDTH);
     public static final double HERO_IMAGE_HEIGHT = WINDOW_HEIGHT - (WINDOW_HEIGHT/3);
     public static final int ITEM_GRID_COLUMN_NUMBER = 3;
+    public static final int ITEM_IMAGE_WIDTH = 42;
+    public static final int ITEM_IMAGE_HEIGHT = 42;
 
 
 }
