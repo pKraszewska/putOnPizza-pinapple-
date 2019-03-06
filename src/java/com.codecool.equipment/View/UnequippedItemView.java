@@ -1,5 +1,6 @@
 package com.codecool.equipment.View;
 
+import com.codecool.equipment.DisplayConfig;
 import com.codecool.equipment.Model.Item;
 import javafx.geometry.Insets;
 import javafx.scene.layout.VBox;
@@ -11,7 +12,7 @@ public class UnequippedItemView extends VBox {
 
     public UnequippedItemView(Item item) {
         super(10);
-        setPadding(new Insets(15));
+        setPadding(new Insets(DisplayConfig.PADDING));
         Text name = new Text(item.getName());
         Text weight = new Text(String.valueOf(item.getWeight()));
         itemId = item.getId();

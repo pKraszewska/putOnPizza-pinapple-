@@ -1,6 +1,6 @@
 package com.codecool.equipment.View;
 
-import com.codecool.equipment.Config;
+import com.codecool.equipment.DisplayConfig;
 import com.codecool.equipment.Model.Item;
 import javafx.geometry.Insets;
 import javafx.scene.layout.Background;
@@ -15,6 +15,7 @@ public class ItemListView extends GridPane {
     public ItemListView() {
         setPadding(new Insets(15));
         setBackground(new Background(new BackgroundFill(Color.rgb(200, 200 ,200), null, null)));
+        setPrefSize(DisplayConfig.SIDE_PANE_SIZE_WIDTH, DisplayConfig.SIDE_PANE_SIZE_HEIGHT);
     }
 
     /**
@@ -28,14 +29,14 @@ public class ItemListView extends GridPane {
      * 7 % 4 = 3
      * so the list[7] becomes matrix[1][3].
      *
-     * @see Config#ITEM_GRID_COLUMN_NUMBER
+     * @see DisplayConfig#ITEM_GRID_COLUMN_NUMBER
      *
      * @param items
      */
     public void updateView(List<Item> items) {
         for (int i = 0; i < items.size(); i++) {
-            int row = i / Config.ITEM_GRID_COLUMN_NUMBER;
-            int col = i % Config.ITEM_GRID_COLUMN_NUMBER;
+            int row = i / DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
+            int col = i % DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
             add(new UnequippedItemView(items.get(i)), col ,row);
         }
     }
