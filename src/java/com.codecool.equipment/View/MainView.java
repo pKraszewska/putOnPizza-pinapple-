@@ -11,7 +11,7 @@ public class MainView extends BorderPane {
     private EquipmentListView equipmentListView;
 
     public MainView(HeroView heroView, ItemListView itemListView, EquipmentListView equipmentListView) {
-        setPadding(new Insets(25));
+        setPadding(new Insets(10));
         this.setCenter(heroView.getView());
         this.setRight(itemListView);
         this.setLeft(equipmentListView.getView());

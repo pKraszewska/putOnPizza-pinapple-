@@ -19,7 +19,7 @@ public class HeroView {
 
     public HeroView(){
         view.setPrefSize(Config.HERO_IMAGE_WIDTH, Config.HERO_IMAGE_HEIGHT);
-        Text maxCapacity = new Text("Max Capacity : 200");
+        Text maxCapacity = new Text("Max Capacity : " +  Config.MAX_CAPACITY);
         Text currentCapacity = new Text("Current Capacity: ");
         ImageView heroImage = new ImageView(new Image("/hero.png"));
         heroImage.setFitHeight(Config.HERO_IMAGE_HEIGHT);

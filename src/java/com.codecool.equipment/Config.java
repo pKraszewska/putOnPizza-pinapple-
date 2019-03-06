@@ -6,6 +6,7 @@ public class Config {
 
     public static final double SCREEN_WIDTH = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     public static final double SCREEN_HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+    public static final int MAX_CAPACITY = 200;
     public static final double WINDOW_WIDTH = SCREEN_WIDTH * 0.75;
     public static final double WINDOW_HEIGHT = SCREEN_HEIGHT * 0.75;
     public static final double SIDE_PANE_SIZE_WIDTH = WINDOW_WIDTH * 0.25;
