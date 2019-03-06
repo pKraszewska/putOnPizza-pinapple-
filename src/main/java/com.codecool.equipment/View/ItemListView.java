@@ -37,7 +37,7 @@ public class ItemListView extends GridPane {
         for (int i = 0; i < items.size(); i++) {
             int row = i / DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
             int col = i % DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
-            add(new UnequippedItemView(items.get(i)), col ,row);
+            add(new UnequippedItemView(items.get(i)).getVbox(), col ,row);
         }
     }
 

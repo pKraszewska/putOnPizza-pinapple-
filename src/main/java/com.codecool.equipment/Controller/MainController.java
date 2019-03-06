@@ -3,7 +3,10 @@ package com.codecool.equipment.Controller;
 import com.codecool.equipment.Model.Hero;
 import com.codecool.equipment.View.HeroView;
 
-public class MainController {
+import java.util.Observable;
+import java.util.Observer;
+
+public class MainController implements Observer {
 
     private Hero heroModel;
     private HeroView heroView;
@@ -17,4 +20,10 @@ public class MainController {
         heroView.updateDisplay(heroModel);
     }
 
+
+
+    @Override
+    public void update(Observable o, Object arg) {
+
+    }
 }

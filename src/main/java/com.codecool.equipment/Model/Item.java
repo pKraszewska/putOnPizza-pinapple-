@@ -6,6 +6,10 @@ public class Item {
     private int id;
     private static int itemCounter = 0;
 
+    public Item() {
+
+    }
+
 
     public int getWeight() {
         return weight;
