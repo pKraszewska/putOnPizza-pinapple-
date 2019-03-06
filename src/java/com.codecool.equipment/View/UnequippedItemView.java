@@ -2,7 +2,9 @@ package com.codecool.equipment.View;
 
 import com.codecool.equipment.DisplayConfig;
 import com.codecool.equipment.Model.Item;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
@@ -18,4 +20,9 @@ public class UnequippedItemView extends VBox {
         itemId = item.getId();
         getChildren().addAll(name, weight);
     }
+
+    private EventHandler<MouseEvent> onMouseClickedHandler = e -> {
+        Item item = (Item) e.getSource();
+    };
+
 }

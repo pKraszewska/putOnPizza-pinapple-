@@ -19,7 +19,7 @@ public class Item {
         return id;
     }
 
-    public Item(int weight, String name, int id) {
+    public Item() {
         this.weight = weight;
         this.name = name;
         this.id = itemCounter++;
