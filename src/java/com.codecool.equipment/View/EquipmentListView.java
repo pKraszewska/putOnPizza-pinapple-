@@ -17,7 +17,7 @@ public class EquipmentListView {
 
     public EquipmentListView() {
         view.setPrefSize(Config.SIDE_PANE_SIZE_WIDTH, Config.SIDE_PANE_SIZE_HEIGHT);
-        view.setPadding(new Insets(25));
+        view.setPadding(new Insets(10));
         view.setBackground(new Background(new BackgroundFill(Color.rgb(200, 200 ,200), null, null)));
     }
 
