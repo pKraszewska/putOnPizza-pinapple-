@@ -6,11 +6,11 @@ import javafx.geometry.Insets;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-public class UnequippedItemView extends VBox {
+public class AvailableItemView extends VBox {
 
     private int itemId;
 
-    public UnequippedItemView(Item item) {
+    public AvailableItemView(Item item) {
         super(10);
         setPadding(new Insets(DisplayConfig.PADDING));
         Text name = new Text(item.getName());

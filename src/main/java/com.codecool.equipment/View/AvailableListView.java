@@ -10,9 +10,9 @@ import javafx.scene.paint.Color;
 
 import java.util.List;
 
-public class ItemListView extends GridPane {
+public class AvailableListView extends GridPane {
 
-    public ItemListView() {
+    public AvailableListView() {
         setPadding(new Insets(15));
         setBackground(new Background(new BackgroundFill(Color.rgb(200, 200 ,200), null, null)));
         setPrefSize(DisplayConfig.SIDE_PANE_SIZE_WIDTH, DisplayConfig.SIDE_PANE_SIZE_HEIGHT);
@@ -37,7 +37,7 @@ public class ItemListView extends GridPane {
         for (int i = 0; i < items.size(); i++) {
             int row = i / DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
             int col = i % DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
-            add(new UnequippedItemView(items.get(i)), col ,row);
+            add(new AvailableItemView(items.get(i)), col ,row);
         }
     }
 

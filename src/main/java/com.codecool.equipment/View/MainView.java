@@ -8,13 +8,13 @@ import javafx.scene.layout.BorderPane;
 public class MainView extends BorderPane {
 
     private HeroView heroView;
-    private ItemListView itemListView;
+    private AvailableListView availableListView;
     private EquipmentListView equipmentListView;
 
-    public MainView(HeroView heroView, ItemListView itemListView, EquipmentListView equipmentListView) {
+    public MainView(HeroView heroView, AvailableListView availableListView, EquipmentListView equipmentListView) {
         setPadding(new Insets(DisplayConfig.PADDING));
         this.setCenter(heroView.getView());
-        this.setRight(itemListView);
+        this.setRight(availableListView);
         this.setLeft(equipmentListView.getView());
     }
 
