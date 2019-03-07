@@ -4,18 +4,18 @@ import com.codecool.equipment.DisplayConfig;
 import com.codecool.equipment.Model.Item;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.image.ImageView;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class EquippedItemView extends HBox {
+public class EquippedItemView extends VBox {
 
     private ImageView itemImage;
 
-    public EquippedItemView(Item item, EquippedItemView root) {
+    public EquippedItemView(Item item, EquipmentListView root) {
         super(10);
         setPadding(new Insets(DisplayConfig.SIDE_PANE_PADDING));
         Text name = new Text(item.getName());
@@ -25,6 +25,7 @@ public class EquippedItemView extends HBox {
         itemImage.setFitWidth(DisplayConfig.ITEM_IMAGE_SIZE);
         getChildren().addAll(this.itemImage, name, weight);
     }
+
 
     private String createResourcesFileName(Item item) {
         List<String> extensions = Arrays.asList(".png", ".jpg", ".gif");
