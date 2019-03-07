@@ -9,13 +9,16 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
 import java.util.List;
+import java.util.Observable;
 
-public class AvailableListView extends GridPane {
+public class AvailableListView extends Observable {
+
+    GridPane gridPane = new GridPane();
 
     public AvailableListView() {
-        setPadding(new Insets(15));
-        setBackground(new Background(new BackgroundFill(Color.rgb(200, 200 ,200), null, null)));
-        setPrefSize(DisplayConfig.SIDE_PANE_SIZE_WIDTH, DisplayConfig.SIDE_PANE_SIZE_HEIGHT);
+        gridPane.setPadding(new Insets(15));
+        gridPane.setBackground(new Background(new BackgroundFill(Color.rgb(200, 200 ,200), null, null)));
+        gridPane.setPrefSize(DisplayConfig.SIDE_PANE_SIZE_WIDTH, DisplayConfig.SIDE_PANE_SIZE_HEIGHT);
     }
 
     /**
@@ -37,8 +40,16 @@ public class AvailableListView extends GridPane {
         for (int i = 0; i < items.size(); i++) {
             int row = i / DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
             int col = i % DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
-            add(new AvailableItemView(items.get(i)), col ,row);
+            gridPane.add(new UnequippedItemView(items.get(i), this), col ,row);
         }
     }
 
+    public GridPane getGridPane() {
+        return gridPane;
+    }
+
+    public void sendIdtoDelete(int itemId) {
+        setChanged();
+        notifyObservers(itemId);
+    }
 }
