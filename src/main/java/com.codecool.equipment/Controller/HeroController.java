@@ -23,7 +23,6 @@ public class HeroController {
     }
 
     public void equipItem(Item item) {
-        System.out.println("ZAŁOŻONED");
         heroModel.equip(item);
         updateDisplay();
     }

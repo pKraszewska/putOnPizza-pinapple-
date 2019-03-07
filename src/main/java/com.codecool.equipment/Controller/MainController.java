@@ -27,7 +27,6 @@ public class MainController implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         if (o instanceof ItemListView) {
-            System.out.println("Kliknięty został");
             int itemId = (Integer) arg;
             Item item = availableItemsController.takeItem(itemId);
             heroController.equipItem(item);

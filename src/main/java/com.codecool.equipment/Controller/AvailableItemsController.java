@@ -6,7 +6,6 @@ public class AvailableItemsController {
 
 
     public Item takeItem(int itemId) {
-        System.out.println("WYJEBAŁO");
         return new Item(14, "kupka");
     }
 }
