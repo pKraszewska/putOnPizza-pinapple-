@@ -3,16 +3,14 @@ package com.codecool.equipment.Model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Hero {
-    private final static int CAPACITY = Config.MAX_CAPACITY;
-    private List<Item> itemList = new ArrayList<>();
+public class Hero extends Container {
 
-    public int getCAPACITY() {
-        return CAPACITY;
+    public Hero() {
+        super(95.0, "Drizzt Do'Urden", Config.MAX_CAPACITY);
     }
 
     public List<Item> getItemList() {
-        return itemList;
+        return getContainedItems();
     }
 
     private void removeItem(Item item){
@@ -21,7 +19,7 @@ public class Hero {
 
 
     public void equip(Item item) {
-        itemList.add(item);
+        addItem(item);
     }
 }
 
