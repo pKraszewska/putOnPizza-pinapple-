@@ -40,7 +40,7 @@ public class AvailableListView extends Observable {
         for (int i = 0; i < items.size(); i++) {
             int row = i / DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
             int col = i % DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
-            gridPane.add(new UnequippedItemView(items.get(i), this), col ,row);
+            gridPane.add(new AvailableItemView(items.get(i), this), col ,row);
         }
     }
 

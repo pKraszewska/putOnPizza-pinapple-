@@ -32,4 +32,8 @@ public class MainView extends BorderPane {
     public EquipmentListView getEquipmentView() {
         return equipmentListView;
     }
+
+    public AvailableListView getAvailableItemsView() {
+        return availableListView;
+    }
 }

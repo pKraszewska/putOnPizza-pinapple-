@@ -15,9 +15,8 @@ public class AvailableItemView extends VBox {
     private int itemId;
     private ImageView itemImage;
 
-    public AvailableItemView(Item item) throws IllegalArgumentException {
+    public AvailableItemView(Item item, AvailableListView root) {
         super(10);
-        boolean err = false;
         setPadding(new Insets(DisplayConfig.PADDING));
         Text name = new Text(item.getName());
         Text weight = new Text(String.valueOf(item.getWeight()));
@@ -26,6 +25,7 @@ public class AvailableItemView extends VBox {
         itemImage.setFitWidth(DisplayConfig.ITEM_IMAGE_WIDTH);
         itemId = item.getId();
         getChildren().addAll(this.itemImage, name, weight);
+        setOnMouseClicked((e) -> root.sendIdtoDelete(itemId));
     }
 
 

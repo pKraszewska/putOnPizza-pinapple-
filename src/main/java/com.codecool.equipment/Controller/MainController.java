@@ -1,6 +1,8 @@
 package com.codecool.equipment.Controller;
 
 import com.codecool.equipment.Model.Hero;
+import com.codecool.equipment.Model.ItemDAO;
+import com.codecool.equipment.Model.ItemPool;
 import com.codecool.equipment.View.AvailableListView;
 import com.codecool.equipment.Model.Item;
 import com.codecool.equipment.View.EquipmentListView;
@@ -19,7 +21,7 @@ public class MainController implements Observer {
     public MainController() {
         this.mainView = new MainView(new HeroView(), new AvailableListView(), new EquipmentListView(), this);
         this.heroController = new HeroController(new Hero(), mainView.getHeroView(), mainView.getEquipmentView());
-        availableItemsController = new AvailableItemsController();
+        availableItemsController = new AvailableItemsController(mainView.getAvailableItemsView(), new ItemPool(ItemDAO.getInstance()));
 
     }
 
