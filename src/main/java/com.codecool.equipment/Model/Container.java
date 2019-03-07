@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Container extends Item {
 
+    private Container owner;
     private double maxCapacity;
     private List<Item> containedItems = new ArrayList<>();
 
@@ -15,6 +16,13 @@ public class Container extends Item {
 
     public void addItem(Item item) {
         containedItems.add(item);
+        if (item instanceof Container) {
+            ((Container) item).setOwner(this);
+        }
+    }
+
+    private void setOwner(Container container) {
+        owner = container;
     }
 
     public double getMaxCapacity() {
