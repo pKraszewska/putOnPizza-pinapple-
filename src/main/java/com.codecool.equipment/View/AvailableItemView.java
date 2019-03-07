@@ -15,10 +15,9 @@ public class AvailableItemView extends VBox {
     private int itemId;
     private ImageView itemImage;
 
-      public AvailableItemView(Item item) throws IllegalArgumentException{
-
-          super(10);
-          boolean err = false;
+    public AvailableItemView(Item item) throws IllegalArgumentException {
+        super(10);
+        boolean err = false;
         setPadding(new Insets(DisplayConfig.PADDING));
         Text name = new Text(item.getName());
         Text weight = new Text(String.valueOf(item.getWeight()));
@@ -35,7 +34,7 @@ public class AvailableItemView extends VBox {
         String searchedFileName = "bomb.jpg";
         for (String extension : extensions) {
             searchedFileName = item.getName() + extension;
-            if (checkIfResourceExists(searchedFileName))  {
+            if (checkIfResourceExists(searchedFileName)) {
                 break;
             }
         }
@@ -43,6 +42,6 @@ public class AvailableItemView extends VBox {
     }
 
     private boolean checkIfResourceExists(String fileName) {
-          return getClass().getResource("/" + fileName) != null;
+        return getClass().getResource("/" + fileName) != null;
     }
 }
