@@ -14,8 +14,8 @@ public class AvailableItemView extends VBox {
 
     private int itemId;
     private ImageView itemImage;
-  
-    public AvailableItemView(Item item){
+
+    public AvailableItemView(Item item, AvailableListView root){
       super(10);
       setPadding(new Insets(DisplayConfig.SIDE_PANE_PADDING));
       Text name = new Text(item.getName());
@@ -25,9 +25,10 @@ public class AvailableItemView extends VBox {
       itemImage.setFitWidth(DisplayConfig.ITEM_IMAGE_SIZE);
       itemId = item.getId();
       getChildren().addAll(this.itemImage, name, weight);
-      setOnMouseClicked((e) -> root.sendIdtoDelete(itemId));
+      setOnMouseClicked((e) -> {
+          if (e.getClickCount() == 2) root.sendIdtoDelete(itemId);
+      });
   }
-
 
     private String createResourcesFileName(Item item) {
         List<String> extensions = Arrays.asList(".png", ".jpg", ".gif");

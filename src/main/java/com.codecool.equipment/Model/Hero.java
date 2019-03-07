@@ -15,13 +15,6 @@ public class Hero {
         return itemList;
     }
 
-
-
-
-    private void addItem(Item item){
-
-    }
-
     private void removeItem(Item item){
 
     }

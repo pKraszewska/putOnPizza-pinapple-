@@ -37,6 +37,7 @@ public class AvailableListView extends Observable {
      * @param items
      */
     public void updateView(List<Item> items) {
+        gridPane.getChildren().clear();
         for (int i = 0; i < items.size(); i++) {
             int row = i / DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
             int col = i % DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
