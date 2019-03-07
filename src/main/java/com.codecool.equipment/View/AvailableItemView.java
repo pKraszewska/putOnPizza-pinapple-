@@ -16,15 +16,13 @@ public class AvailableItemView extends VBox {
     private ImageView itemImage;
 
       public AvailableItemView(Item item) throws IllegalArgumentException{
-
           super(10);
-          boolean err = false;
-        setPadding(new Insets(DisplayConfig.PADDING));
+        setPadding(new Insets(DisplayConfig.SIDE_PANE_PADDING));
         Text name = new Text(item.getName());
         Text weight = new Text(String.valueOf(item.getWeight()));
         this.itemImage = new ImageView((new Image(createResourcesFileName(item))));
-        itemImage.setFitHeight(DisplayConfig.ITEM_IMAGE_HEIGHT); // zmienic w configu;
-        itemImage.setFitWidth(DisplayConfig.ITEM_IMAGE_WIDTH);
+        itemImage.setFitHeight(DisplayConfig.ITEM_IMAGE_SIZE);
+        itemImage.setFitWidth(DisplayConfig.ITEM_IMAGE_SIZE);
         itemId = item.getId();
         getChildren().addAll(this.itemImage, name, weight);
     }
