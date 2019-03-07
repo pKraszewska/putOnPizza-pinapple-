@@ -7,6 +7,12 @@ import java.util.Scanner;
 
 public class ItemDAO {
 
+    private static ItemDAO  instance = new ItemDAO();
+
+    public static ItemDAO getInstance() {
+        return instance;
+    }
+
     public List<Item> getAllItemsFromFile(String filePath) {
         List<Item> items = new ArrayList<>();
         try (Scanner sc = new Scanner(new File(filePath))) {
@@ -21,6 +27,6 @@ public class ItemDAO {
 
     private static Item parseLineToItem(String itemLine) {
         String[] valuesArray = itemLine.split(",");
-        return new Item(Integer.parseInt(valuesArray[1]), valuesArray[0]);
+        return new Item(Double.parseDouble(valuesArray[1]), valuesArray[0]);
     }
 }
