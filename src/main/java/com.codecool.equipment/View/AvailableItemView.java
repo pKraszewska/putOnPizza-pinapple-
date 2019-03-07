@@ -25,7 +25,9 @@ public class AvailableItemView extends VBox {
         itemImage.setFitWidth(DisplayConfig.ITEM_IMAGE_WIDTH);
         itemId = item.getId();
         getChildren().addAll(this.itemImage, name, weight);
-        setOnMouseClicked((e) -> root.sendIdtoDelete(itemId));
+        setOnMouseClicked((e) -> {
+            if (e.getClickCount() == 2) root.sendIdtoDelete(itemId);
+        });
     }
 
 
