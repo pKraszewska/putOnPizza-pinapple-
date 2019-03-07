@@ -25,6 +25,7 @@ public class HeroView {
         heroImage.setFitWidth(DisplayConfig.HERO_IMAGE_WIDTH);
         view.setSpacing(10);
         view.setAlignment(Pos.CENTER);
+        view.setStyle(cssLayout);
         view.getChildren().addAll(heroImage, maxCapacity,currentCapacity);
     }
 
@@ -34,6 +35,8 @@ public class HeroView {
     public Pane getView() {
         return view;
     }
+
+    String cssLayout = "-fx-font-size: 25;\n";
 }
 
 
