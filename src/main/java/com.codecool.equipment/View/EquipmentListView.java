@@ -21,6 +21,7 @@ public class EquipmentListView {
     }
 
     public void updateView(List<Item> items) {
+        view.getChildren().clear();
         for (Item item : items) {
             view.getChildren().add(new EquippedItemView(item));
         }
