@@ -1,29 +1,39 @@
 package com.codecool.equipment.Controller;
 
 import com.codecool.equipment.Model.Hero;
-import com.codecool.equipment.Model.ItemDAO;
-import com.codecool.equipment.Model.ItemPool;
 import com.codecool.equipment.View.AvailableListView;
+import com.codecool.equipment.Model.Item;
+import com.codecool.equipment.View.EquipmentListView;
 import com.codecool.equipment.View.HeroView;
+import com.codecool.equipment.View.MainView;
 
-public class MainController {
+import java.util.Observable;
+import java.util.Observer;
 
-    private Hero heroModel;
-    private HeroView heroView;
-    private ItemPool itemPool;
-    private AvailableListView availableListView;
+public class MainController implements Observer {
 
+    private HeroController heroController;
+    private MainView mainView;
+    private AvailableItemsController availableItemsController;
 
-    public MainController(Hero heroModel) {
-        this.heroModel = heroModel;
-        this.heroView = heroView;
-        this.itemPool = new ItemPool(ItemDAO.getInstance());
-        this.availableListView = new AvailableListView();
-        availableListView.updateView(itemPool.getItemList());
+    public MainController() {
+        this.mainView = new MainView(new HeroView(), new AvailableListView(), new EquipmentListView(), this);
+        this.heroController = new HeroController(new Hero(), mainView.getHeroView(), mainView.getEquipmentView());
+        availableItemsController = new AvailableItemsController();
+
     }
 
+    @Override
+    public void update(Observable o, Object arg) {
+        if (o instanceof AvailableListView) {
+            int itemId = (Integer) arg;
+            Item item = availableItemsController.takeItem(itemId);
+            heroController.equipItem(item);
+        }
 
-    public void updateDisplay() {
-        heroView.updateDisplay(heroModel);
+    }
+
+    public MainView getMainView() {
+        return mainView;
     }
 }

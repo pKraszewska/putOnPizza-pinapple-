@@ -27,8 +27,9 @@ public class Hero {
     }
 
 
-
-
+    public void equip(Item item) {
+        itemList.add(item);
     }
+}
 
 
