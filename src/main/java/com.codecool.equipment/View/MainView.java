@@ -10,17 +10,17 @@ import java.util.Observer;
 public class MainView extends BorderPane {
 
     private HeroView heroView;
-    private ItemListView itemListView;
+    private AvailableListView availableListView;
     private EquipmentListView equipmentListView;
 
-    public MainView(HeroView heroView, ItemListView itemListView, EquipmentListView equipmentListView, Observer mainObserver) {
+    public MainView(HeroView heroView, AvailableListView availableListView, EquipmentListView equipmentListView, Observer mainObserver) {
         setPadding(new Insets(DisplayConfig.PADDING));
         this.heroView = heroView;
-        this.itemListView = itemListView;
+        this.availableListView = availableListView;
         this.equipmentListView = equipmentListView;
-        itemListView.addObserver(mainObserver);
+        this.availableListView.addObserver(mainObserver);
         this.setCenter(heroView.getView());
-        this.setRight(itemListView.getGridPane());
+        this.setRight(availableListView.getGridPane());
         this.setLeft(equipmentListView.getView());
     }
 

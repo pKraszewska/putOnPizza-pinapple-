@@ -12,10 +12,10 @@ import javafx.scene.text.Text;
 public class UnequippedItemView extends VBox {
 
     private int itemId;
-    private ItemListView itemListView;
+    private AvailableListView itemListView;
 
 
-    public UnequippedItemView(Item item, ItemListView itemListView) {
+    public UnequippedItemView(Item item, AvailableListView itemListView) {
         super(10);
         setPadding(new Insets(DisplayConfig.PADDING));
         Text name = new Text(item.getName());

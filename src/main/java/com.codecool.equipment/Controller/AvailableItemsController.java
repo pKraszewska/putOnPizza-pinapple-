@@ -6,6 +6,6 @@ public class AvailableItemsController {
 
 
     public Item takeItem(int itemId) {
-        return new Item(14, "kupka");
+        return new Item(14.0, "kupka");
     }
 }

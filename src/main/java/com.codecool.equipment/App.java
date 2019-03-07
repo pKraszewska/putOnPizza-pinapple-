@@ -1,11 +1,5 @@
 package com.codecool.equipment;
-import com.codecool.equipment.Controller.AvailableItemsController;
-import com.codecool.equipment.Controller.HeroController;
 import com.codecool.equipment.Controller.MainController;
-import com.codecool.equipment.View.EquipmentListView;
-import com.codecool.equipment.View.HeroView;
-import com.codecool.equipment.View.ItemListView;
-import com.codecool.equipment.View.MainView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;

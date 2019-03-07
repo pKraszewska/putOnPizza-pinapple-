@@ -14,9 +14,9 @@ class ItemDAOTest {
     @Test
     void getsAllProductFromFile() {
         List<Item> expectedItems = Arrays.asList(
-                new Item(13, "Test1"),
-                new Item(43, "Test2"),
-                new Item(11, "Test3")
+                new Item(13.0, "Test1"),
+                new Item(43.0, "Test2"),
+                new Item(11.0, "Test3")
         );
         String filePath = getClass().getResource("/items.csv").getPath();
         List<Item> result = itemDAO.getAllItemsFromFile(filePath);
