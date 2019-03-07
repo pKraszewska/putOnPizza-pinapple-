@@ -14,19 +14,19 @@ public class AvailableItemView extends VBox {
 
     private int itemId;
     private ImageView itemImage;
-
-    public AvailableItemView(Item item, AvailableListView root) {
-        super(10);
-        setPadding(new Insets(DisplayConfig.PADDING));
-        Text name = new Text(item.getName());
-        Text weight = new Text(String.valueOf(item.getWeight()));
-        this.itemImage = new ImageView((new Image(createResourcesFileName(item))));
-        itemImage.setFitHeight(DisplayConfig.ITEM_IMAGE_HEIGHT); // zmienic w configu;
-        itemImage.setFitWidth(DisplayConfig.ITEM_IMAGE_WIDTH);
-        itemId = item.getId();
-        getChildren().addAll(this.itemImage, name, weight);
-        setOnMouseClicked((e) -> root.sendIdtoDelete(itemId));
-    }
+  
+    public AvailableItemView(Item item){
+      super(10);
+      setPadding(new Insets(DisplayConfig.SIDE_PANE_PADDING));
+      Text name = new Text(item.getName());
+      Text weight = new Text(String.valueOf(item.getWeight()));
+      this.itemImage = new ImageView((new Image(createResourcesFileName(item))));
+      itemImage.setFitHeight(DisplayConfig.ITEM_IMAGE_SIZE);
+      itemImage.setFitWidth(DisplayConfig.ITEM_IMAGE_SIZE);
+      itemId = item.getId();
+      getChildren().addAll(this.itemImage, name, weight);
+      setOnMouseClicked((e) -> root.sendIdtoDelete(itemId));
+  }
 
 
     private String createResourcesFileName(Item item) {
