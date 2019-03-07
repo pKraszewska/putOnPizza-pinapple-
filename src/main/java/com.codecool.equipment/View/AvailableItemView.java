@@ -14,18 +14,19 @@ public class AvailableItemView extends VBox {
 
     private int itemId;
     private ImageView itemImage;
-
-      public AvailableItemView(Item item) throws IllegalArgumentException{
-          super(10);
-        setPadding(new Insets(DisplayConfig.SIDE_PANE_PADDING));
-        Text name = new Text(item.getName());
-        Text weight = new Text(String.valueOf(item.getWeight()));
-        this.itemImage = new ImageView((new Image(createResourcesFileName(item))));
-        itemImage.setFitHeight(DisplayConfig.ITEM_IMAGE_SIZE);
-        itemImage.setFitWidth(DisplayConfig.ITEM_IMAGE_SIZE);
-        itemId = item.getId();
-        getChildren().addAll(this.itemImage, name, weight);
-    }
+  
+    public AvailableItemView(Item item){
+      super(10);
+      setPadding(new Insets(DisplayConfig.SIDE_PANE_PADDING));
+      Text name = new Text(item.getName());
+      Text weight = new Text(String.valueOf(item.getWeight()));
+      this.itemImage = new ImageView((new Image(createResourcesFileName(item))));
+      itemImage.setFitHeight(DisplayConfig.ITEM_IMAGE_SIZE);
+      itemImage.setFitWidth(DisplayConfig.ITEM_IMAGE_SIZE);
+      itemId = item.getId();
+      getChildren().addAll(this.itemImage, name, weight);
+      setOnMouseClicked((e) -> root.sendIdtoDelete(itemId));
+  }
 
 
     private String createResourcesFileName(Item item) {
@@ -33,7 +34,7 @@ public class AvailableItemView extends VBox {
         String searchedFileName = "bomb.jpg";
         for (String extension : extensions) {
             searchedFileName = item.getName() + extension;
-            if (checkIfResourceExists(searchedFileName))  {
+            if (checkIfResourceExists(searchedFileName)) {
                 break;
             }
         }
@@ -41,6 +42,6 @@ public class AvailableItemView extends VBox {
     }
 
     private boolean checkIfResourceExists(String fileName) {
-          return getClass().getResource("/" + fileName) != null;
+        return getClass().getResource("/" + fileName) != null;
     }
 }
