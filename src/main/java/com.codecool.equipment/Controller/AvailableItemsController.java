@@ -20,6 +20,8 @@ public class AvailableItemsController {
     }
 
     public Item takeItem(int itemId) {
-        return new Item(14.0, "kupka");
+        Item item = itemPool.popItemById(itemId);
+        updateView();
+        return item;
     }
 }
