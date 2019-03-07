@@ -14,7 +14,7 @@ public class DisplayConfig {
     public static final double SIDE_PANE_SIZE_HEIGHT = WINDOW_HEIGHT;
     public static final double HERO_IMAGE_WIDTH = WINDOW_WIDTH - (2 * SIDE_PANE_SIZE_WIDTH) - PADDING*2;
     public static final double HERO_IMAGE_HEIGHT = WINDOW_HEIGHT - (WINDOW_HEIGHT/3);
-    public static final int ITEM_GRID_COLUMN_NUMBER = 3;
+    public static final int ITEM_GRID_COLUMN_NUMBER = 4;
     public static final double ITEM_IMAGE_SIZE = (SIDE_PANE_SIZE_WIDTH / ITEM_GRID_COLUMN_NUMBER) - SIDE_PANE_PADDING * 3;
 
 
