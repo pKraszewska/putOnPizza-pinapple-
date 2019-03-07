@@ -45,4 +45,5 @@ public class AvailableItemView extends VBox {
     private boolean checkIfResourceExists(String fileName) {
         return getClass().getResource("/" + fileName) != null;
     }
+
 }
