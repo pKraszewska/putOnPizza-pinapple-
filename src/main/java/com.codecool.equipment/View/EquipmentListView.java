@@ -32,10 +32,12 @@ public class EquipmentListView {
         return view;
     }
 
-    String cssLayout = "-fx-border-color: red;\n" +
-            "-fx-border-insets: 1;\n" +
+    String cssLayout = "-fx-border-color: darkblue;\n" +
+            "-fx-border-insets: 0.5;\n" +
             "-fx-border-width: 3;\n" +
             "-fx-border-style: dashed;\n"+
-            "-fx-background-color: lightgray;\n";
+            "-fx-border-radius: 20;\n"+
+            "-fx-background-color: lightgray;\n"+
+            "-fx-background-radius: 20;\n";
 
 }

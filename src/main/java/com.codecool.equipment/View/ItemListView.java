@@ -16,6 +16,7 @@ public class ItemListView extends GridPane {
         setPadding(new Insets(15));
         setBackground(new Background(new BackgroundFill(Color.rgb(200, 200 ,200), null, null)));
         setPrefSize(DisplayConfig.SIDE_PANE_SIZE_WIDTH, DisplayConfig.SIDE_PANE_SIZE_HEIGHT);
+        setStyle(cssLayout);
     }
 
     /**
@@ -40,5 +41,14 @@ public class ItemListView extends GridPane {
             add(new UnequippedItemView(items.get(i)).getVbox(), col ,row);
         }
     }
+
+    String cssLayout = "-fx-border-color: darkblue;\n" +
+            "-fx-border-insets: 0.5;\n" +
+            "-fx-border-width: 3;\n" +
+            "-fx-border-style: dashed;\n"+
+            "-fx-border-radius: 20;\n"+
+            "-fx-background-color: lightgray;\n"+
+            "-fx-background-radius: 20;\n";
+
 
 }

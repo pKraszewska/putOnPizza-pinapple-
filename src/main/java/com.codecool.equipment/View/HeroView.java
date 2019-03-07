@@ -26,6 +26,7 @@ public class HeroView {
         view.setSpacing(10);
         view.setAlignment(Pos.CENTER);
         view.getChildren().addAll(heroImage, maxCapacity,currentCapacity);
+        view.setStyle(cssLayout);
     }
 
     public void updateDisplay(Hero heroModel) {
@@ -34,6 +35,10 @@ public class HeroView {
     public Pane getView() {
         return view;
     }
+
+    String cssLayout = "-fx-font: Verdana;\n;"+
+                       "-fx-";
+
 }
 
 
