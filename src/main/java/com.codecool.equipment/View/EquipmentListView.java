@@ -8,7 +8,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -19,8 +19,8 @@ import java.util.Observable;
 public class EquipmentListView extends Observable {
 
     private VBox view = new VBox();
-    private VBox equipmentView = new VBox();
-
+    GridPane equipmentView = new GridPane();
+  
     private Text equipmentLabel = new Text();
     private Button backButton = new Button("Back");
 
@@ -32,6 +32,7 @@ public class EquipmentListView extends Observable {
         HBox equipmentHeader = new HBox();
         equipmentHeader.getChildren().addAll(equipmentLabel, backButton);
         view.getChildren().addAll(equipmentHeader, equipmentView);
+        view.setStyle(Util.listCssLayout);
     }
 
     private void sendGoBackRequest() {
@@ -40,15 +41,18 @@ public class EquipmentListView extends Observable {
     }
 
     public void updateView(Container container) {
-        equipmentView.getChildren().clear();
-        equipmentLabel.setText(container.getName() + " items: \n");
-        backButton.setVisible(!(container instanceof Hero));
-        for (Item item : container.getContainedItems()) {
-            equipmentView.getChildren().add(new EquippedItemView(item, this));
-        }
+      equipmentLabel.setText(container.getName() + " items: \n");  
+      equipmentView.getChildren().clear();
+      backButton.setVisible(!(container instanceof Hero));
+      List<Item> items = container.getContainedItems();
+      for (int i=0; i < items.size(); i++) {
+          int row = i / DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
+          int col = i % DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
+          view.add(new EquippedItemView(items.get(i), this), col, row);
+      }
     }
 
-    public VBox getView() {
+    public GridPane getView() {
         return view;
     }
 
