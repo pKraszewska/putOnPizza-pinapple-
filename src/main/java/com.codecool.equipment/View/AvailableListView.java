@@ -19,6 +19,7 @@ public class AvailableListView extends Observable {
         gridPane.setPadding(new Insets(15));
         gridPane.setBackground(new Background(new BackgroundFill(Color.rgb(200, 200 ,200), null, null)));
         gridPane.setPrefSize(DisplayConfig.SIDE_PANE_SIZE_WIDTH, DisplayConfig.SIDE_PANE_SIZE_HEIGHT);
+        gridPane.setStyle(Util.listCssLayout);
     }
 
     /**
@@ -53,4 +54,5 @@ public class AvailableListView extends Observable {
         setChanged();
         notifyObservers(itemId);
     }
+
 }
