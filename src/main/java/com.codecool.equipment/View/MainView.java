@@ -19,6 +19,7 @@ public class MainView extends BorderPane {
         this.availableListView = availableListView;
         this.equipmentListView = equipmentListView;
         this.availableListView.addObserver(mainObserver);
+        this.equipmentListView.addObserver(mainObserver);
         this.setCenter(heroView.getView());
         this.setRight(availableListView.getGridPane());
         this.setLeft(equipmentListView.getView());

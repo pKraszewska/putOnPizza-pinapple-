@@ -1,5 +1,6 @@
 package com.codecool.equipment.View;
 
+import com.codecool.equipment.Model.Container;
 import com.codecool.equipment.DisplayConfig;
 import com.codecool.equipment.Model.Item;
 import javafx.geometry.Insets;
@@ -24,7 +25,8 @@ public class EquippedItemView extends VBox {
         itemImage.setFitHeight(DisplayConfig.ITEM_IMAGE_SIZE);
         itemImage.setFitWidth(DisplayConfig.ITEM_IMAGE_SIZE);
         getChildren().addAll(this.itemImage, name, weight);
+        if (item instanceof Container) {
+            setOnMouseClicked(e -> root.sendBrowsingRequest(item.getId()));
+        }
     }
-
-
-    }
+}

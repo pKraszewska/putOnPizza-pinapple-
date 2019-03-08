@@ -29,5 +29,4 @@ public class AvailableItemView extends VBox {
           if (e.getClickCount() == 2) root.sendIdtoDelete(itemId);
       });
   }
-
 }

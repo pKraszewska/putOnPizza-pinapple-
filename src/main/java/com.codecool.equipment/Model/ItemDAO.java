@@ -27,6 +27,15 @@ public class ItemDAO {
 
     private static Item parseLineToItem(String itemLine) {
         String[] valuesArray = itemLine.split(",");
-        return new Item(Double.parseDouble(valuesArray[1]), valuesArray[0]);
+        String name = valuesArray[0];
+        double weight = Double.parseDouble(valuesArray[1]);
+        boolean isContainer = Boolean.parseBoolean(valuesArray[2]);
+
+        if (isContainer) {
+            double maxCapacity = Double.parseDouble(valuesArray[3]);
+            return new Container(weight, name, maxCapacity);
+        } else {
+            return new Item(weight, name);
+        }
     }
 }
