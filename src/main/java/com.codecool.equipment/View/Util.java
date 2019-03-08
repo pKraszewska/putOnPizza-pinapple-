@@ -17,13 +17,16 @@ public final class Util {
 
     static String createResourcesFileName(Item item) {
         List<String> extensions = Arrays.asList(".png", ".jpg", ".gif");
-        String searchedFileName = "bomb.jpg";
+        String searchedFileName = "";
+        boolean resourceFound = false;
         for (String extension : extensions) {
             searchedFileName = item.getName() + extension;
             if (checkIfResourceExists(searchedFileName)) {
+                resourceFound = true;
                 break;
             }
         }
+        searchedFileName = resourceFound ? searchedFileName : "bomb.jpg";
         return searchedFileName;
     }
 
