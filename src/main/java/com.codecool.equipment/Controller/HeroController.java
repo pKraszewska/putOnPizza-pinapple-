@@ -6,6 +6,8 @@ import com.codecool.equipment.Model.Item;
 import com.codecool.equipment.View.EquipmentListView;
 import com.codecool.equipment.View.HeroView;
 
+import java.util.function.DoubleBinaryOperator;
+
 public class HeroController {
 
     private Hero heroModel;
@@ -21,14 +23,21 @@ public class HeroController {
         updateDisplay();
     }
 
+
     public void updateDisplay() {
         heroView.updateDisplay(heroModel);
         equipmentListView.updateView(browsedContainer);
     }
 
-    public void equipItem(Item item) {
-        heroModel.equip(item);
-        updateDisplay();
+    public boolean equipItem(Item item) {
+            if (heroModel.isManagableToLift(item)) {
+                System.out.println("weszlo w  herocontroler");
+                System.out.println(item.getName());
+                updateDisplay();
+                changeCapacityText();
+                return true;
+            }
+            return false;
     }
 
     public void changeEquipmentView(int containerId) {
@@ -44,3 +53,11 @@ public class HeroController {
         updateDisplay();
     }
 }
+
+    public void changeCapacityText(){
+        heroView.updateCapacityText(heroModel.getCurrentCapacity());
+        }
+    }
+
+
+

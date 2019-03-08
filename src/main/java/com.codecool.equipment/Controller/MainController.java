@@ -1,5 +1,10 @@
 package com.codecool.equipment.Controller;
 
+import com.codecool.equipment.Model.Hero;
+import com.codecool.equipment.Model.ItemDAO;
+import com.codecool.equipment.Model.ItemPool;
+import com.codecool.equipment.View.*;
+import com.codecool.equipment.Model.Item;
 import com.codecool.equipment.Model.*;
 import com.codecool.equipment.View.AvailableListView;
 import com.codecool.equipment.View.EquipmentListView;
@@ -14,6 +19,9 @@ public class MainController implements Observer {
     private HeroController heroController;
     private MainView mainView;
     private AvailableItemsController availableItemsController;
+    private AvailableItemView availableItemView;
+
+
 
     public MainController() {
         this.mainView = new MainView(new HeroView(), new AvailableListView(), new EquipmentListView(), this);
@@ -28,6 +36,12 @@ public class MainController implements Observer {
             int itemId = (Integer) arg;
             Item item = availableItemsController.takeItem(itemId);
             heroController.equipItem(item);
+            ItemPool itemPool = new ItemPool(ItemDAO.getInstance());
+            heroController.changeCapacityText();
+            if(heroController.equipItem(item)){
+                System.out.println("main controller if == true");
+                itemPool.removeItemFromAvailableList(item);
+            }
         } else if (o instanceof EquipmentListView) {
             if (arg instanceof Integer) {
                 int containerId = (Integer) arg;
@@ -35,6 +49,7 @@ public class MainController implements Observer {
             } else if (arg instanceof String) {
                 heroController.browseBack();
             }
+
         }
 
     }

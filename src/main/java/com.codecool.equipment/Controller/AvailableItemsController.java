@@ -1,5 +1,6 @@
 package com.codecool.equipment.Controller;
 
+import com.codecool.equipment.Model.Hero;
 import com.codecool.equipment.Model.Item;
 import com.codecool.equipment.Model.ItemPool;
 import com.codecool.equipment.View.AvailableListView;

@@ -19,10 +19,13 @@ public class ItemPool {
         for (Item item : itemList) {
             if (item.getId() == itemId) {
                 searchedItem = item;
-                itemList.remove(item);
-                break;
+                //itemList.remove(item);
+                //break;
             }
         }
         return searchedItem;
+    }
+    public void removeItemFromAvailableList(Item searchedItem){
+        itemList.remove(searchedItem);
     }
 }
