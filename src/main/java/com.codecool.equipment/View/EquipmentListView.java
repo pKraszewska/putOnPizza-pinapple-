@@ -6,10 +6,7 @@ import com.codecool.equipment.Model.Hero;
 import com.codecool.equipment.Model.Item;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
@@ -48,11 +45,11 @@ public class EquipmentListView extends Observable {
       for (int i=0; i < items.size(); i++) {
           int row = i / DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
           int col = i % DisplayConfig.ITEM_GRID_COLUMN_NUMBER;
-          view.add(new EquippedItemView(items.get(i), this), col, row);
+          equipmentView.add(new EquippedItemView(items.get(i), this), col, row);
       }
     }
 
-    public GridPane getView() {
+    public VBox getView() {
         return view;
     }
 
